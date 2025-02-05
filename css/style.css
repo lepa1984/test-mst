@@ -1436,9 +1436,6 @@ h2 {
     padding: 30px 0;
   }
 
-  .header.active {
-    padding: 10px 0;
-  }
 
   .header.active .header__logo img {
     width: 140px;
@@ -1488,7 +1485,7 @@ h2 {
   }
 
   .video span {
-    padding: 12px;
+    padding: 14px;
     font-size: 180px;
   }
 
@@ -1627,7 +1624,7 @@ h2 {
 @media (max-width: 769px) and (max-width: 1920px) {
   .video span {
     font-size: calc(
-            26px + 154 *
+            25px + 154 *
                 ((100vw - 320px) / 1600)
         );
   }
@@ -1635,6 +1632,6 @@ h2 {
 
 @media (max-width: 510px) {
   .video span {
-    padding: 7px;
+    padding: 9px;
   }
 }
