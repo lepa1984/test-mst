@@ -1,0 +1,125 @@
+.main {
+    margin-bottom: 120px;
+
+    &__wrapper {
+    }
+
+    // .main__inner
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+        margin-bottom: 40px;
+    }
+
+    // .main__items
+
+    &__items {
+        display: grid;
+        gap: 30px 20px;
+        grid-template-columns: 1fr 1fr 2fr;
+    }
+
+    // .main__item
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        img {
+            object-fit: cover;
+            width: 100%;
+            aspect-ratio: 16/11;
+            border-radius: 20px;
+        }
+        &:nth-child(3) {
+            background: #304352;
+            border-radius: 20px;
+            padding: 35px 32px 34px 52px;
+            justify-content: space-between;
+
+            .main__item-date {
+                text-align: right;
+            }
+            .main__item-date,
+            .main__item-link {
+                color: #e8e8e8;
+                font-size: 18px;
+            }
+            .main__item-title {
+                font-size: 48px;
+                line-height: 105%;
+                color: #fff;
+            }
+        }
+    }
+
+    // .main__item-img
+
+    &__item-img {
+        display: block;
+        margin-bottom: 21px;
+    }
+
+    // .main__item-inner
+
+    &__item-inner {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+    }
+
+    // .main__item-date
+
+    &__item-date {
+        font-weight: 400;
+        font-size: 13px;
+        color: #929292;
+    }
+
+    // .main__item-link
+
+    &__item-link {
+        font-weight: 400;
+        font-size: 13px;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+
+        color: #304352;
+    }
+
+    // .main__item-title
+
+    &__item-title {
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: 32px;
+        color: #304352;
+        display: block;
+        margin-bottom: 10px;
+        max-width: 500px;
+    }
+
+    // .main__item-text
+
+    &__item-text {
+        font-weight: 400;
+        font-size: 18px;
+        color: #304352;
+    }
+}
+.main-reverse {
+    .main__item:nth-child(3) {
+        order: -1;
+    }
+    .main__items {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
+.container {
+}
+.more {
+}

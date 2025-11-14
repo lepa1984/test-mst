@@ -1,0 +1,38 @@
+.burger {
+    border-radius: 100%;
+
+    display: none;
+    align-items: flex-end;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2px;
+
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+    span {
+        position: relative;
+        display: block;
+        width: 18px;
+        height: 2px;
+        background: #304352;
+        border-radius: 50px;
+        transition: 0.3s;
+    }
+    &.active {
+        span {
+            &:nth-child(1) {
+                transform: rotate(45deg);
+                top: 4px;
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                transform: rotate(-45deg);
+                top: -4px;
+            }
+        }
+    }
+}

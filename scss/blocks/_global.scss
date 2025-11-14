@@ -1,0 +1,248 @@
+$maxWidthContainer: 1440;
+
+@mixin adaptive($property, $startSize, $minSize) {
+    $addSize: $startSize - $minSize;
+
+    #{$property}: $startSize + px;
+    @media (max-width: #{$maxWidthContainer + px}) {
+        #{$property}: calc(
+            #{$minSize + px} + #{$addSize} *
+                ((100vw - 360px) / #{$maxWidthContainer - 360})
+        );
+    }
+}
+$maxWidthContainerMax: 1920;
+
+@mixin adaptiveMax($property, $startSize, $minSize) {
+    $addSize: $startSize - $minSize;
+
+    #{$property}: $startSize + px;
+    @media (max-width: #{$maxWidthContainerMax + px}) {
+        #{$property}: calc(
+            #{$minSize + px} + #{$addSize} *
+                ((100vw - 360px) / #{$maxWidthContainerMax - 360})
+        );
+    }
+}
+@font-face {
+    font-family: 'AA Bebas Neue';
+    font-display: swap;
+    src: url('../fonts/AABebasNeue.woff2') format('woff2'),
+        url('../fonts/AABebasNeue.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Futura PT';
+    font-display: swap;
+    src: url('../fonts/FuturaPT-Book.woff2') format('woff2'),
+        url('../fonts/FuturaPT-Book.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+:root {
+    --font-family: 'Arial', sans-serif;
+    --second-family: 'AA Bebas Neue', sans-serif;
+    --third-family: 'Futura PT', sans-serif;
+    --font3: 'Inter', sans-serif;
+}
+* {
+    box-sizing: border-box;
+
+    padding: 0;
+    margin: 0;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 18px;
+
+    font-feature-settings: 'lnum' 1;
+}
+ul {
+    list-style: none;
+}
+section {
+    scroll-margin-top: 30px;
+}
+
+body {
+    -webkit-text-size-adjust: none;
+
+    &.active {
+        overflow: hidden;
+    }
+}
+html {
+    scroll-behavior: smooth;
+}
+button {
+    position: relative;
+    transition: 0.3s;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+b,
+span,
+a {
+    color: inherit;
+    text-decoration: none;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    font-weight: inherit;
+    font-family: inherit;
+}
+
+h2 {
+    font-family: var(--second-family);
+    font-weight: 400;
+    @include adaptive('font-size', 55, 32);
+    letter-spacing: 0.02em;
+    color: #304352;
+}
+h1 {
+    font-family: var(--second-family);
+    font-weight: 400;
+    @include adaptive('font-size', 60, 36);
+    letter-spacing: 0.02em;
+    color: #304352;
+}
+.container-h1 {
+    display: none;
+}
+img {
+    display: block;
+}
+
+.container {
+    max-width: 1344px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.crumbs {
+    z-index: 5;
+    padding: 150px 0 46px;
+
+    position: relative;
+    ul {
+        display: flex;
+        align-items: center;
+        padding-bottom: 9px;
+        gap: 0 1px;
+        overflow-x: auto;
+
+        @supports (-moz-appearance: none) {
+            scrollbar-color: #304352 rgba(30, 30, 30, 0.5);
+        }
+        // WebKit браузеры
+        &::-webkit-scrollbar {
+            border-radius: 10px;
+            width: 1px;
+            height: 1px;
+            background-color: #555554;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background-color: #304352;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &::-webkit-scrollbar-track {
+            border-radius: 10px;
+            background-color: #555554;
+            opacity: 1;
+            visibility: visible;
+        }
+        li {
+            p,
+            a {
+                white-space: nowrap;
+
+                font-size: 20px;
+            }
+            a {
+                display: flex;
+                align-items: center;
+                gap: 1px;
+
+                color: #304352;
+
+                transition: 0.3s;
+
+                &::after {
+                    display: block;
+                    content: '';
+                    width: 24px;
+                    height: 24px;
+                    background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 18L15 12L9 6' stroke='%23929292' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+                }
+            }
+            p {
+                padding-right: 20px;
+                color: #929292;
+            }
+        }
+    }
+}
+.more {
+    font-family: var(--third-family);
+    font-weight: 400;
+    font-size: 16px;
+    color: #304352;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.5s;
+    width: fit-content;
+    overflow: hidden;
+    padding: 5px 13px;
+    border: 1px solid #304352;
+    border-radius: 10px;
+    &::after {
+        display: block;
+        content: '';
+        background-image: url("data:image/svg+xml,%3Csvg width='10' height='16' viewBox='0 0 10 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 3.5L7 8.5L2 13.5' stroke='%23304352' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        width: 10px;
+        height: 16px;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+    &:hover {
+        color: var(--white);
+        gap: 10px;
+        &::after {
+            width: 24px;
+
+            transform: translateX(0px);
+        }
+    }
+}
+input[type='search']::-webkit-search-decoration,
+input[type='search']::-webkit-search-cancel-button,
+input[type='search']::-webkit-search-results-button,
+input[type='search']::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    display: block;
+    cursor: pointer;
+    background: url('../img/close.svg') center (center/contain) no-repeat;
+
+    background-position: center;
+    width: 16px;
+    height: 16px;
+    margin-right: 0px;
+}
+input[type='search'] {
+    -moz-appearance: searchfield !important;
+}
